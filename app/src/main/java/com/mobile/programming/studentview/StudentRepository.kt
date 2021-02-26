@@ -27,6 +27,10 @@ class StudentRepository(application: Application) {
         deleteStudentAsyncTask(mStudentDao).execute(student)
     }
 
+    fun deleteStudentById(nik: String){
+        deleteStudentById(nik)
+    }
+
     class insertAsyncTask(var mAsyncTaskDao: StudentDao) : AsyncTask<Student, Void, Void>(){
 
         override fun doInBackground(vararg p0: Student?): Void? {

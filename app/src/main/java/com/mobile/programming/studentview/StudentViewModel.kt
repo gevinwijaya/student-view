@@ -20,4 +20,8 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         mRepository.deleteStudent(student)
     }
 
+    fun deleteStudentById(nik: String){
+        mRepository.deleteStudentById(nik)
+    }
+
 }

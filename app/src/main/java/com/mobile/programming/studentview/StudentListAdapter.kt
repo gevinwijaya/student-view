@@ -1,13 +1,13 @@
 package com.mobile.programming.studentview
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.programming.studentview.databinding.RecyclerviewItemBinding
 
-class StudentListAdapter(private val context: Context) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>(){
+class StudentListAdapter(val context: Context) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>(){
 
     val mInflater: LayoutInflater = LayoutInflater.from(context)
     var mStudents: List<Student?>? = null
@@ -18,8 +18,8 @@ class StudentListAdapter(private val context: Context) : RecyclerView.Adapter<St
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
-        val itemBinding = RecyclerviewItemBinding.inflate(LayoutInflater.from(context), parent, false)
-        return StudentViewHolder(itemBinding);
+        val itemBinding = RecyclerviewItemBinding.inflate(mInflater, parent, false)
+        return StudentViewHolder(itemBinding, mStudents);
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
@@ -37,12 +37,27 @@ class StudentListAdapter(private val context: Context) : RecyclerView.Adapter<St
         else return 0
     }
 
-    class StudentViewHolder(private val itemBinding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+    class StudentViewHolder(
+        private val itemBinding: RecyclerviewItemBinding,
+        private val mStudents: List<Student?>?
+    ) :
+        RecyclerView.ViewHolder(
+            itemBinding.root
+        ) {
 
         fun bind(student: Student){
             val desc: String = student.mMajor + " - " + student.mNik
             itemBinding.txtName.text = student.mName
             itemBinding.txtDesc.text = desc
+
+            itemBinding.btnDelete.setOnClickListener{
+                val replyIntent = Intent()
+                replyIntent.putExtra("nik", mStudents!!.get(adapterPosition)!!.mNik)
+
+            }
+            itemBinding.btnShare.setOnClickListener{
+
+            }
         }
     }
 

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
   private lateinit var mainBinding: ActivityMainBinding
 
   val NEW_STUDENT_ACTIVITY_REQUEST_CODE: Int = 1;
+  val DELETE_STUDENT_REQUEST_CODE: Int = 2;
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -39,18 +40,24 @@ class MainActivity : AppCompatActivity() {
       val intent = Intent(this, NewStudentActivity::class.java)
       startActivityForResult(intent, NEW_STUDENT_ACTIVITY_REQUEST_CODE)
     }
+
+
   }
 
-//  fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-//    super.onActivityResult(requestCode, resultCode, data)
-//    if (requestCode == NEW_STUDENT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-//      val student = Student(data.getStringExtra(NewStudentActivity.EXTRA_REPLY))
-//      // Save the data
-//      mStudentViewModel.insert(student)
-//    } else {
-//      Toast.makeText(
-//        this, R.string.empty_not_saved, Toast.LENGTH_LONG
-//      ).show()
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == NEW_STUDENT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+      val student = Student(
+        data!!.getStringExtra("nik"),
+        data!!.getStringExtra("name"),
+        data!!.getStringExtra("major"),
+        data!!.getStringExtra("gender"),
+        data!!.getStringExtra("hobby"))
+      // Save the data
+      mStudentViewModel.insert(student)
+    }
+//    else if(requestCode == DELETE_STUDENT_REQUEST_CODE && resultCode == RESULT_OK){
+//      mStudentViewModel.deleteStudentById(data!!.getStringExtra("nik"))
 //    }
-//  }
+  }
 }

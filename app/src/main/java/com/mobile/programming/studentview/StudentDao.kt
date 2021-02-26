@@ -11,6 +11,9 @@ interface StudentDao {
   @Delete
   fun deleteStudent(student: Student?)
 
+  @Query("DELETE from student_table where nik = :nik")
+  fun deleteStudentById(nik: String)
+
   @Query("SELECT * from student_table LIMIT 1")
   fun getAnyStudent():Array<Student?>?
 

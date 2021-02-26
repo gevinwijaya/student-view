@@ -3,4 +3,24 @@
     <string name="placeholder">Placeholder</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="new_student">Tambah</string>
+    <string name="nama">Nama</string>
+    <string name="jurusan">Jurusan</string>
+    <string name="nim">NIM</string>
+    <string name="gender">Gender</string>
+    <string name="laki_laki">Laki-laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="hobi">Hobi</string>
+    <string name="submit">Submit</string>
+
+    <string-array name="major_array">
+        <item>Sistem Informasi</item>
+        <item>Cyber Security</item>
+        <item>Teknik Informatika</item>
+    </string-array>
+
+    <string-array name="hobi_array">
+        <item>Belajar</item>
+        <item>Bermain</item>
+        <item>Belajar sambil bermain</item>
+    </string-array>
 </resources>
