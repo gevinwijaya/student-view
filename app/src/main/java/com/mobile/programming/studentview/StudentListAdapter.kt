@@ -53,7 +53,7 @@ class StudentListAdapter(val context: Context) : RecyclerView.Adapter<StudentLis
                     "Nama: " + student.mName + System.lineSeparator() +
                     "Jurusan: " + student.mMajor + System.lineSeparator() +
                     "Gender: " + student.mGender + System.lineSeparator() +
-                    "Hobby: " + student.mHobby + System.lineSeparator()
+                    "Hobby: " + student.mHobby
             ShareCompat.IntentBuilder
                 .from(context as Activity)
                 .setType("text/plain")

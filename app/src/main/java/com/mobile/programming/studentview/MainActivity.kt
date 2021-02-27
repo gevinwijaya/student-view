@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
     if (requestCode == NEW_STUDENT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+
       val student = Student(
         data!!.getStringExtra("nik"),
         data.getStringExtra("name"),
