@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.programming.studentview.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
 
   lateinit var mStudentViewModel: StudentViewModel
   private lateinit var mainBinding: ActivityMainBinding
 
   val NEW_STUDENT_ACTIVITY_REQUEST_CODE: Int = 1;
-  val DELETE_STUDENT_REQUEST_CODE: Int = 2;
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -29,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     val adapter = StudentListAdapter(this)
     recyclerView.adapter = adapter
     recyclerView.layoutManager = LinearLayoutManager(this)
+    adapter.setListener(this)
 
     mStudentViewModel = ViewModelProviders.of(this).get(StudentViewModel(application)::class.java)
     mStudentViewModel.getAllStudents()?.observe(this,
@@ -49,15 +49,21 @@ class MainActivity : AppCompatActivity() {
     if (requestCode == NEW_STUDENT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
       val student = Student(
         data!!.getStringExtra("nik"),
-        data!!.getStringExtra("name"),
-        data!!.getStringExtra("major"),
-        data!!.getStringExtra("gender"),
-        data!!.getStringExtra("hobby"))
+        data.getStringExtra("name"),
+        data.getStringExtra("major"),
+        data.getStringExtra("gender"),
+        data.getStringExtra("hobby"))
       // Save the data
       mStudentViewModel.insert(student)
     }
 //    else if(requestCode == DELETE_STUDENT_REQUEST_CODE && resultCode == RESULT_OK){
 //      mStudentViewModel.deleteStudentById(data!!.getStringExtra("nik"))
 //    }
+  }
+
+  override fun onItemClicked(student: Student?, position: Int) {
+    if (student != null) {
+      mStudentViewModel.deleteStudent(student)
+    }
   }
 }

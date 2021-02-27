@@ -9,12 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentView">
-        <activity android:name=".NewStudentActivity"
+        <activity android:name=".StudentDetailActivity"
+            android:label="@string/detail_student"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.StudentView.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".NewStudentActivity"
             android:label="@string/new_student"
-            android:theme="@style/Theme.StudentView.NoActionBar"
-            android:parentActivityName=".MainActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.StudentView.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"

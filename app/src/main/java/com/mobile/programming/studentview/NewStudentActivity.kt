@@ -64,7 +64,7 @@ class NewStudentActivity : AppCompatActivity() {
                 replyIntent.putExtra("major",major)
                 replyIntent.putExtra("gender",gender)
                 replyIntent.putExtra("hobby",hobby);
-
+                displayToast("Added new student")
                 setResult(RESULT_OK, replyIntent)
             }
             finish()
