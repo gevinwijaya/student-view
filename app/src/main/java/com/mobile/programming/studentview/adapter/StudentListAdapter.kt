@@ -5,11 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.programming.studentview.databinding.RecyclerviewItemBinding
 import com.mobile.programming.studentview.repository.Student
 import com.mobile.programming.studentview.view.StudentDetailActivity
+import com.mobile.programming.studentview.view.StudentDetailDialog
 
 class StudentListAdapter(val context: Context) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>(){
 
@@ -62,13 +65,23 @@ class StudentListAdapter(val context: Context) : RecyclerView.Adapter<StudentLis
         }
         holder.itemView.setOnClickListener{
             val student = mStudents?.get(position)
-            val replyIntent = Intent(context, StudentDetailActivity::class.java)
-            replyIntent.putExtra("name", student!!.mName)
-            replyIntent.putExtra("nik", student.mNik)
-            replyIntent.putExtra("major",student.mMajor)
-            replyIntent.putExtra("gender",student.mGender)
-            replyIntent.putExtra("hobby",student.mHobby);
-            context.startActivity(replyIntent)
+//            val replyIntent = Intent(context, StudentDetailActivity::class.java)
+//            replyIntent.putExtra("name", student!!.mName)
+//            replyIntent.putExtra("nik", student.mNik)
+//            replyIntent.putExtra("major",student.mMajor)
+//            replyIntent.putExtra("gender",student.mGender)
+//            replyIntent.putExtra("hobby",student.mHobby);
+//            context.startActivity(replyIntent)
+
+            val activity = context as AppCompatActivity
+
+            if (student != null) {
+                StudentDetailDialog.newInstance(student.mName,
+                    student.mNik,
+                    student.mMajor,
+                    student.mGender,
+                    student.mHobby).show(activity.supportFragmentManager, StudentDetailDialog.TAG)
+            }
         }
     }
 

@@ -2,17 +2,21 @@ package com.mobile.programming.studentview.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mobile.programming.studentview.R
 import com.mobile.programming.studentview.repository.Student
 import com.mobile.programming.studentview.adapter.StudentListAdapter
 import com.mobile.programming.studentview.repository.StudentViewModel
 import com.mobile.programming.studentview.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
+class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener, StudentDetailDialog.ItemListener {
 
   lateinit var mStudentViewModel: StudentViewModel
   private lateinit var mainBinding: ActivityMainBinding
@@ -44,6 +48,21 @@ class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
     }
   }
 
+  override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    menuInflater.inflate(R.menu.menu_main, menu)
+    return true
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+    if(item!!.itemId == R.id.action_auth){
+      val intent = Intent(this, AuthActivity::class.java)
+      startActivity(intent)
+    }
+
+    return super.onOptionsItemSelected(item)
+  }
+
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
     if (requestCode == NEW_STUDENT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
@@ -63,5 +82,12 @@ class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
     if (student != null) {
       mStudentViewModel.deleteStudent(student)
     }
+  }
+
+  override fun displayToast(name: String) {
+    Toast.makeText(
+      applicationContext, name,
+      Toast.LENGTH_SHORT
+    ).show()
   }
 }
