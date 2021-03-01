@@ -1,15 +1,15 @@
-package com.mobile.programming.studentview
+package com.mobile.programming.studentview.adapter
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.location.Address
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.programming.studentview.databinding.RecyclerviewItemBinding
+import com.mobile.programming.studentview.repository.Student
+import com.mobile.programming.studentview.view.StudentDetailActivity
 
 class StudentListAdapter(val context: Context) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>(){
 

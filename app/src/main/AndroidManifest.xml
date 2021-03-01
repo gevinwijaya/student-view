@@ -8,26 +8,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StudentView">
-        <activity android:name=".StudentDetailActivity"
+        android:theme="@style/Theme.StudentView"
+        android:name=".injection.MyApp">
+        <activity android:name=".view.StudentDetailActivity"
             android:label="@string/detail_student"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".view.MainActivity"
             android:theme="@style/Theme.StudentView.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".view.MainActivity" />
         </activity>
         <activity
-            android:name=".NewStudentActivity"
+            android:name=".view.NewStudentActivity"
             android:label="@string/new_student"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".view.MainActivity"
             android:theme="@style/Theme.StudentView.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".view.MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.StudentView.NoActionBar">
             <intent-filter>

@@ -1,7 +1,8 @@
-package com.mobile.programming.studentview
+package com.mobile.programming.studentview.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.mobile.programming.studentview.R
 import com.mobile.programming.studentview.databinding.ActivityStudentDetailBinding
 
 class StudentDetailActivity : AppCompatActivity() {

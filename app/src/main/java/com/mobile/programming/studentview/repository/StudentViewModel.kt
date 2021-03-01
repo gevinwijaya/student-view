@@ -1,12 +1,20 @@
-package com.mobile.programming.studentview
+package com.mobile.programming.studentview.repository
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import com.mobile.programming.studentview.injection.DaggerStudentComponent
+import javax.inject.Inject
 
 class StudentViewModel(application: Application) : AndroidViewModel(application) {
-    var mRepository: StudentRepository = StudentRepository(application)
-    var mAllStudents: LiveData<List<Student?>?>? = mRepository.getAllStudents()
+    @Inject
+    lateinit var mRepository: StudentRepository
+    var mAllStudents: LiveData<List<Student?>?>? = null
+
+    init {
+        DaggerStudentComponent.create().inject(this)
+        mAllStudents = mRepository.getAllStudents()
+    }
 
     fun getAllStudents(): LiveData<List<Student?>?>?{
         return mAllStudents

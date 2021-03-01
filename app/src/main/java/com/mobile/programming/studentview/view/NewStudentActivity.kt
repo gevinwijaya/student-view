@@ -1,4 +1,4 @@
-package com.mobile.programming.studentview
+package com.mobile.programming.studentview.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.mobile.programming.studentview.R
 import com.mobile.programming.studentview.databinding.ActivityNewStudentBinding
 
 class NewStudentActivity : AppCompatActivity() {
@@ -79,12 +80,6 @@ class NewStudentActivity : AppCompatActivity() {
     }
 
     private fun isNumeric(string: String) : Boolean{
-//        try {
-//            val num = parseDouble(string)
-//        } catch (e: NumberFormatException){
-//            return false
-//        }
-//        return true
         for (char in string) {
             if(!Character.isDigit(char)){
                 return false;

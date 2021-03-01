@@ -1,4 +1,4 @@
-package com.mobile.programming.studentview
+package com.mobile.programming.studentview.repository
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

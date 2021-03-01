@@ -1,13 +1,15 @@
-package com.mobile.programming.studentview
+package com.mobile.programming.studentview.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mobile.programming.studentview.repository.Student
+import com.mobile.programming.studentview.adapter.StudentListAdapter
+import com.mobile.programming.studentview.repository.StudentViewModel
 import com.mobile.programming.studentview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
@@ -40,8 +42,6 @@ class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
       val intent = Intent(this, NewStudentActivity::class.java)
       startActivityForResult(intent, NEW_STUDENT_ACTIVITY_REQUEST_CODE)
     }
-
-
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -57,9 +57,6 @@ class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener {
       // Save the data
       mStudentViewModel.insert(student)
     }
-//    else if(requestCode == DELETE_STUDENT_REQUEST_CODE && resultCode == RESULT_OK){
-//      mStudentViewModel.deleteStudentById(data!!.getStringExtra("nik"))
-//    }
   }
 
   override fun onItemClicked(student: Student?, position: Int) {

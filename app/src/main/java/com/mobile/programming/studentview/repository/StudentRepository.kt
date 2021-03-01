@@ -1,4 +1,4 @@
-package com.mobile.programming.studentview
+package com.mobile.programming.studentview.repository
 
 import android.app.Application
 import android.os.AsyncTask
@@ -37,7 +37,6 @@ class StudentRepository(application: Application) {
             mAsyncTaskDao.insert(p0[0])
             return null
         }
-
     }
 
     class deleteStudentAsyncTask(var mAsyncTaskDao: StudentDao) : AsyncTask<Student, Void, Void>(){
@@ -46,7 +45,6 @@ class StudentRepository(application: Application) {
             mAsyncTaskDao.deleteStudent(p0[0])
             return null
         }
-
     }
 
 }
