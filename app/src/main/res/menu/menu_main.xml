@@ -5,9 +5,15 @@
     tools:context=".view.MainActivity">
 
     <item
-        android:title="Authenticate"
+        android:title="@string/authenticate"
         android:icon="@drawable/ic_action_login"
         android:id="@+id/action_auth"
         android:orderInCategory="100"
+        app:showAsAction="always"/>
+    <item
+        android:title="View Images"
+        android:icon="@drawable/ic_action_view_image"
+        android:id="@+id/action_view_image"
+        android:orderInCategory="30"
         app:showAsAction="always"/>
 </menu>

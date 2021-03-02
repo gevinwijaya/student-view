@@ -59,6 +59,10 @@ class MainActivity : AppCompatActivity(), StudentListAdapter.ItemListener, Stude
       val intent = Intent(this, AuthActivity::class.java)
       startActivity(intent)
     }
+    if(item!!.itemId == R.id.action_view_image){
+      val intent = Intent(this, ViewImageActivity::class.java)
+      startActivity(intent)
+    }
 
     return super.onOptionsItemSelected(item)
   }

@@ -13,20 +13,10 @@
     <string name="submit">Submit</string>
     <string name="detail_student">Nama</string>
 
-    <string-array name="major_array">
-        <item>Sistem Informasi</item>
-        <item>Cyber Security</item>
-        <item>Teknik Informatika</item>
-    </string-array>
-
-    <string-array name="hobi_array">
-        <item>Belajar</item>
-        <item>Bermain</item>
-        <item>Belajar sambil bermain</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="forgot_password">Forgot Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="auth">Auth</string>
@@ -37,4 +27,16 @@
     <string name="nomor_telepon">Nomor Telepon</string>
     <string name="tanggal_lahir">Tanggal Lahir</string>
     <string name="pick_a_date">Pick a date</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="view_image">View Image</string>
+    <string-array name="major_array">
+        <item>Sistem Informasi</item>
+        <item>Cyber Security</item>
+        <item>Teknik Informatika</item>
+    </string-array>
+    <string-array name="hobi_array">
+        <item>Belajar</item>
+        <item>Bermain</item>
+        <item>Belajar sambil bermain</item>
+    </string-array>
 </resources>
